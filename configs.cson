@@ -1,0 +1,167 @@
+
+'AI Robot':
+    init: '''
+        The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.
+        Human: Hello, who are you?
+        AI: I am an AI created by OpenAI. How can I help you today?
+
+    '''
+    agent: 'AI: '
+    user: 'Human: '
+    params:
+        'max_tokens': 150
+        'top_p': 1
+        'frequency_penalty': 0
+        'presence_penalty': 0.6
+        'n': 1
+        'stream': false
+        'logprobs': null
+        'stop': ['\n', 'Human:'] 
+    example: "Hi, what's your name?"
+
+
+'Q&A':
+    init: '''
+        I am a highly intelligent question answering bot. If you ask me a question that is rooted in truth, I will give you the answer. 
+        If you ask me a question that is nonsense, trickery, or has no clear answer, I will respond with "Unknown".
+        Q: What is human life expectancy in the United States?
+        A: Human life expectancy in the United States is 78 years.
+        Q: Who was president of the United States in 1955?
+        A: Dwight D. Eisenhower was president of the United States in 1955.
+        Q: Which party did he belong to?
+        A: He belonged to the Republican Party.
+        Q: What is the square root of banana?
+        A: Unknown
+        Q: How does a telescope work?
+        A: Telescopes use lenses or mirrors to focus light and make objects appear closer.
+        Q: Where were the 1992 Olympics held?
+        A: The 1992 Olympics were held in Barcelona, Spain.
+        Q: How many squigs are in a bonk?
+        A: Unknown
+
+    '''
+    agent: 'A: '
+    user: 'Q: '
+    params:
+        'max_tokens': 150
+        'temperature': 0
+        'top_p': 1
+        'frequency_penalty': 0
+        'presence_penalty': 0
+        'n': 1
+        'stream': false
+        'logprobs': null
+        'stop': ['\n', 'Q:'] 
+    example: "What's the biggest planet on the milky way?"
+
+'Amazon Support':
+    init: '''
+        The following is a conversation with an Amazon support representative.
+        He can answer questions about products Amazon sells in its retail website.
+        Agent: Hello, how can I help you today?
+        Customer: I\'m looking for information on a product I saw at Amazon
+        Agent:  What kind of product are you looking for?
+
+    '''
+    agent: 'Agent: '
+    user: 'Customer: '
+    params:
+        'max_tokens': 150
+        'temperature': 0.3
+        'top_p': 1
+        'frequency_penalty': 0.5
+        'presence_penalty': 0
+        'n': 1
+        'stream': false
+        'logprobs': null
+        'stop': ['\n', 'Customer:']
+    example: "I'm looking for a pair of man boots"
+
+'Kotlin chatbot':
+    init: '''
+        Kotlin chatbot
+        You: How to create singleton in Kotlin?
+        Kotlin chatbot: Just use object. Example: object SomeSingleton. This is the preferred way to implement singletons on a JVM because it enables thread-safe lazy initialization without having to rely on a locking algorithm like the complex double-checked locking.
+        You: How to initialize an array in Kotlin with values?
+        Kotlin chatbot: val numbers: IntArray = intArrayOf(10, 20, 30, 40, 50)
+        You: What is a data class in Kotlin?
+        Kotlin chatbot: We frequently create classes whose main purpose is to hold data. In Kotlin, this is called a data class and is marked as data. 
+        To ensure consistency and meaningful behavior of the generated code, data classes have to fulfill the following requirements:
+        The primary constructor needs to have at least one parameter;
+        All primary constructor parameters need to be marked as val or var;
+        Data classes cannot be abstract, open, sealed or inner.
+        You: What is basic difference between fold and reduce in Kotlin? When to use which?
+        Kotlin chatbot: fold takes an initial value, and the first invocation of the lambda you pass to it will receive that initial value and the first element of the collection as parameters.
+
+        '''
+    agent: 'Kotlin chatbot: '
+    user: 'You: '
+    params:
+        'max_tokens': 150
+        'temperature': 0.3
+        'top_p': 1
+        'frequency_penalty': 0.5
+        'presence_penalty': 0
+        'n': 1
+        'stream': false
+        'logprobs': null
+        'stop': ['\n', 'You:']
+    example: "Explain advantages of when vs switch in Kotlin"
+
+
+'Interview question':
+    init: '''
+        Invent a problem and answer on data structures and algorithms for a candidate applying to a senior software engineer position at Amazon.
+        Indicate what red flags to look for, type of answer would lower the bar and what would raise the bar.
+
+        Problem description:
+
+    '''
+    agent: ''
+    user: ''
+    clearOnEachResponse: true
+    params:
+        'max_tokens': 400
+        'temperature': 0.8
+        'top_p': 1
+        'frequency_penalty': 0
+        'presence_penalty': 0
+        'n': 1
+        'stream': false
+        'logprobs': null
+        'stop': ''
+    example: "."
+
+'Summarize meeting':
+    init: '''
+        Convert my short hand into a first-hand account of the meeting:
+
+        '''
+    agent: 'Summary: '
+    user: ''
+    params:
+        'max_tokens': 250
+        'temperature': 0.7
+        'top_p': 1
+        'frequency_penalty': 0
+        'presence_penalty': 0
+        'n': 1
+        'stream': false
+        'logprobs': null
+        'stop': "\n\n"
+    example:  '''
+        - Paul to contact the three owners which have RECS_LOCAL in their campaigns and ask for the updated Symphony campaign.
+        - Alexa to review and respond to Indu’s comments in the tracker
+        - Paul to add Experiment Weblab ID to the LoP Control Group Campaigns.
+        - Paul to add the Exports name to Symphony Content name field (aka strategy id). For example, exportsCartsimh
+        - Paul to write up a summary of the meeting for the group.
+    '''
+
+modes: [
+    'AI Robot'
+    'Q&A'
+    'Summarize meeting'
+    'Amazon Support'
+    'Interview question'
+    'Kotlin chatbot'
+]

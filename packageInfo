@@ -1,0 +1,2 @@
+base = {workspace = lbbotero_slackbot; };
+packages = { };
