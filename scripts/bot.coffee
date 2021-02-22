@@ -48,17 +48,15 @@ module.exports = (robot) ->
         clearOnEachResponse = config[mode].clearOnEachResponse
         robotContext = ''
         res.send mode + ":\n" + robotInit
-        return
+        if !clearOnEachResponse
+          return
+        res.send "... thinking, please wait ..."
     
     if robotContext.length > 2000 
         robotContext = robotContext.substr(robotContext.length - 2000)
         robotContext = robotContext.substr(robotContext.indexOf(agent))
 
-    if clearOnEachResponse
-      robotContext = ""
-    else if res.message.text == '.'     
-      robotContext = robotContext + user + '\n' + agent
-    else if res.message.text == 'example' || res.message.text == 'ex'
+    if res.message.text == 'example' || res.message.text == 'ex'
       res.send user + example + '\n' + agent
       robotContext = robotContext + user + example + '\n' + agent
     else

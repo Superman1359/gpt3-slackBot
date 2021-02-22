@@ -5,6 +5,7 @@
   "author": "Jaime Botero <ljbotero+gptbot@gmail.com>",
   "description": "A smaple Slack bot using GPT3",
   "dependencies": {
+    "cson": "7.20.0",
     "hubot": "^3.3.2",
     "hubot-diagnostics": "^1.0.0",
     "hubot-google-images": "^0.2.7",
@@ -17,8 +18,7 @@
     "hubot-rules": "^1.0.0",
     "hubot-scripts": "^2.17.2",
     "hubot-shipit": "^0.2.1",
-    "hubot-slack": "^4.9.0",
-    "cson": "7.20.0"
+    "hubot-slack": "^4.9.0"
   },
   "engines": {
     "node": "0.10.x"
